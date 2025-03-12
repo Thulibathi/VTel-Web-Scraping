@@ -38,7 +38,7 @@ print(f"Number of records retrieved: {len(products)}")
 
 # Optional: Save to a file (e.g., CSV)
 import csv
-with open("products.csv", "w", newline="", encoding="utf-8") as file:
+with open("software.csv", "w", newline="", encoding="utf-8") as file:
     writer = csv.writer(file)
     writer.writerow(["Product Name", "Price"])  # Header
     for product in products:

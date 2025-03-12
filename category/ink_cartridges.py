@@ -41,7 +41,6 @@ for product in products:
 
     # Print or store the data
     print(f"Product: {name}, Price: {price}")
-print(f"Number of records retrieved: {len(products+products_)}")
 
 #Second page
 for product_ in products_:
@@ -57,10 +56,13 @@ for product_ in products_:
 
     # Print or store the data
     print(f"Product: {name}, Price: {price}")
-    print(f"Number of records retrieved: {len(all_products)}")
+
+#Print the number of records
+print(f"Number of records retrieved: {len(all_products)}")
+
 # Optional: Save to a file (e.g., CSV)
 import csv
-with open("products.csv", "w", newline="", encoding="utf-8") as file:
+with open("ink_catridges.csv", "w", newline="", encoding="utf-8") as file:
     writer = csv.writer(file)
     writer.writerow(["Product Name", "Price"])  # Header
     for product in products:
@@ -69,3 +71,9 @@ with open("products.csv", "w", newline="", encoding="utf-8") as file:
         price = product.find("span", class_="price")
         price = price.text.strip() if price else "N/A"
         writer.writerow([name, price])
+    for product_ in products_:
+        name_ = product_.find("h3", class_="auxshp-title-heading")
+        name_ = name_.text.strip() if name_ else "N/A"
+        price_ = product_.find("span", class_="price")
+        price_ = price_.text.strip() if price_ else "N/A"
+        writer.writerow([name_, price_])
