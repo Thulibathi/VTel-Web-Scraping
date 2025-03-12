@@ -1,9 +1,7 @@
 import subprocess
 import os
 import openpyxl
-import re
-import csv
-import io
+
 
 def run_python_scripts_and_save_to_excel(script_paths, output_folder="results"):
     """
@@ -51,6 +49,7 @@ def save_output_to_excel(output, excel_file_path):
         output (str): The output from the script.
         excel_file_path (str): The path to the Excel file.
     """
+   
     workbook = openpyxl.Workbook()
     sheet = workbook.active
 
@@ -64,8 +63,8 @@ def save_output_to_excel(output, excel_file_path):
 
 # Example usage:
 script_paths = ["category/cables.py", "category/cctv_camera.py", "category/desktop.py","category/flash_drive.py", 
-                "category/hard_drives.py", "category/headset.py"]#"category/ink_cartridges.py", "category/keyboard.py",
-                #"category/memory.py", "category/micro_sd_card.py", "category/monitor.py", "category/mouse.py",
-                #"category/note_book.py", "category/power_supply.py", "category/printer.py","category/router.py",
-                #"category/software.py", "category/ssd.py","category/uncategorized.py", "category/ups.py"]  # Replace with your script paths
+                "category/hard_drives.py", "category/headset.py","category/ink_cartridges.py", "category/keyboard.py",
+                "category/memory.py", "category/micro_sd_card.py", "category/monitor.py", "category/mouse.py",
+                "category/note_book.py", "category/power_supply.py", "category/printer.py","category/router.py",
+                "category/software.py", "category/ssd.py","category/uncategorized.py", "category/ups.py"]  # Replace with your script paths
 run_python_scripts_and_save_to_excel(script_paths)
