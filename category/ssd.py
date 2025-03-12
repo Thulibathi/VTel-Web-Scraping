@@ -57,7 +57,7 @@ for product_ in products_:
 print(f"Number of records retrieved: {len(products+products_)}")
 
 # Optional: Save to a file (e.g., CSV)
-import csv
+"""import csv
 with open("ssd.csv", "w", newline="", encoding="utf-8") as file:
     writer = csv.writer(file)
     writer.writerow(["Product Name", "Price"])  # Header
@@ -72,4 +72,4 @@ with open("ssd.csv", "w", newline="", encoding="utf-8") as file:
         name_ = name_.text.strip() if name_ else "N/A"
         price_ = product_.find("span", class_="price")
         price_ = price_.text.strip() if price_ else "N/A"
-        writer.writerow([name_, price_])
+        writer.writerow([name_, price_])"""

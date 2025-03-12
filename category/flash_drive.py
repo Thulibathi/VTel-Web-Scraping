@@ -46,21 +46,22 @@ for product in products:
 #Second page
 for product_ in products_:
     # Extract product name (update selector based on inspection)
-    name = product_.find("h3", class_="auxshp-title-heading")  # Example
-    name = name.text.strip() if name else "N/A"
+    name_ = product_.find("h3", class_="auxshp-title-heading")  # Example
+    name_ = name_.text.strip() if name_ else "N/A"
 
     # Extract price (update selector based on inspection)
-    price = product_.find("span", class_="price")  # Example
-    price = price.text.strip() if price else "N/A"
+    price_ = product_.find("span", class_="price")  # Example
+    price_ = price_.text.strip() if price_ else "N/A"
 
     # Print or store the data
-    print(f"Product: {name}, Price: {price}")
+    print(f"Product: {name}")
+    print(f"Product: {name_}")
     
 print(f"Number of records retrieved: {len(products+products_)}")
 
 
 # Optional: Save to a file (e.g., CSV)
-import csv
+"""import csv
 with open("flash_drive.csv", "w", newline="", encoding="utf-8") as file:
     writer = csv.writer(file)
     writer.writerow(["Product Name", "Price"])  # Header
@@ -75,4 +76,4 @@ with open("flash_drive.csv", "w", newline="", encoding="utf-8") as file:
         name_ = name_.text.strip() if name_ else "N/A"
         price_ = product_.find("span", class_="price")
         price_ = price_.text.strip() if price_ else "N/A"
-        writer.writerow([name_, price_])
+        writer.writerow([name_, price_])"""

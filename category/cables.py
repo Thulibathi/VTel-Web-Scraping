@@ -33,7 +33,7 @@ for product in products:
     price = price.text.strip() if price else "N/A"
 
     # Print or store the data
-    print(f"Product: {name}, Price: {price}")
+    print(f"Product: {name}")
 print(f"Number of records retrieved: {len(products)}")
 
 # Optional: Save to a file (e.g., CSV)
