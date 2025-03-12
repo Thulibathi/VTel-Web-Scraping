@@ -25,7 +25,7 @@ products = soup.find_all("div", class_="product")  # Example class, update this
 # Loop through products and extract details
 for product in products:
     # Extract product name (update selector based on inspection)
-    name = product.find("h3", class_="product-title")  # Example
+    name = product.find("h3", class_="auxshp-title-heading")  # Example
     name = name.text.strip() if name else "N/A"
 
     # Extract price (update selector based on inspection)
@@ -34,7 +34,6 @@ for product in products:
 
     # Print or store the data
     print(f"Product: {name}, Price: {price}")
-
 
 #Print the number of records
 print(f"Number of records retrieved: {len(products)}")
@@ -45,7 +44,7 @@ with open("products.csv", "w", newline="", encoding="utf-8") as file:
     writer = csv.writer(file)
     writer.writerow(["Product Name", "Price"])  # Header
     for product in products:
-        name = product.find("h3", class_="product-title")
+        name = product.find("h3", class_="auxshp-title-heading")
         name = name.text.strip() if name else "N/A"
         price = product.find("span", class_="price")
         price = price.text.strip() if price else "N/A"

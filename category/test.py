@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 
 # URL to scrape
-url = "https://v-tel.co.za/product-category/power-supply/"
+url = "https://v-tel.co.za/product-category/cctv-camera/"
 
 
 
@@ -41,9 +41,12 @@ import csv
 with open("products.csv", "w", newline="", encoding="utf-8") as file:
     writer = csv.writer(file)
     writer.writerow(["Product Name", "Price"])  # Header
+   
+    
     for product in products:
         name = product.find("h3", class_="auxshp-title-heading")
         name = name.text.strip() if name else "N/A"
         price = product.find("span", class_="price")
         price = price.text.strip() if price else "N/A"
         writer.writerow([name, price])
+        #writer.writerow([products])  # Header
