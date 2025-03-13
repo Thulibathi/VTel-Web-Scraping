@@ -1,5 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
+import csv
+import os
 
 # URL to scrape
 url = "https://v-tel.co.za/product-category/flash-drive/"
@@ -61,8 +63,17 @@ print(f"Number of records retrieved: {len(products+products_)}")
 
 
 # Optional: Save to a file (e.g., CSV)
-"""import csv
-with open("flash_drive.csv", "w", newline="", encoding="utf-8") as file:
+# Define the folder name
+output_folder = "output_results"
+
+# Create the folder if it doesn't exist
+if not os.path.exists(output_folder):
+    os.makedirs(output_folder)
+
+# Construct the full file path
+file_path = os.path.join(output_folder, "flash_drive.csv")
+
+with open(file_path, "w", newline="", encoding="utf-8") as file:
     writer = csv.writer(file)
     writer.writerow(["Product Name", "Price"])  # Header
     for product in products:
@@ -70,10 +81,4 @@ with open("flash_drive.csv", "w", newline="", encoding="utf-8") as file:
         name = name.text.strip() if name else "N/A"
         price = product.find("span", class_="price")
         price = price.text.strip() if price else "N/A"
-        writer.writerow([name, price])
-    for product_ in products_:
-        name_ = product_.find("h3", class_="auxshp-title-heading")
-        name_ = name_.text.strip() if name_ else "N/A"
-        price_ = product_.find("span", class_="price")
-        price_ = price_.text.strip() if price_ else "N/A"
-        writer.writerow([name_, price_])"""
+        writer.writerow([name, price]) # Correctly write both name and price. If you only want name, then use writer.writerow([name])
